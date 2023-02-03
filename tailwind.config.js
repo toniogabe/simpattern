@@ -5,7 +5,11 @@ module.exports = {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      rotate: {
+        '270': '270deg'
+      }
+    },
   },
   plugins: [],
   safelist: [
@@ -14,6 +18,9 @@ module.exports = {
   },
   {
     pattern: /rounded-(tr|tl|bl|br)-full/
+  },
+  {
+    pattern: /rotate-(0|90|180|270)/
   }
   ]
 }
