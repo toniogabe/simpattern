@@ -18,8 +18,6 @@ function rotate () {
   if (rotationBase.value > 270)
     rotationBase.value = 0
 
-  console.log(`rotate-${rotationBase.value}`);
-
   rotationClass.value = `rotate-${rotationBase.value}`
 }
 
@@ -27,7 +25,7 @@ function rotate () {
 
 <template>
   <div
-    class="h-20 w-20 hover:scale-150 hover:shadow-lg hover:z-50 transition-all ease-in-out aspect-square"
+    class="h-auto w-10 hover:scale-150 hover:shadow-lg hover:z-50 transition-all ease-in-out aspect-square"
     :class="props.bgColor, rotationClass"
     @click="rotate()"
   >
