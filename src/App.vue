@@ -41,12 +41,22 @@ const rows = ref(5)
 const checkedColors = ref(baseColors.value)
 const checkedWeights = ref(baseWeights.value)
 
+function clearColors () {
+  checkedColors.value = []
+}
+
 </script>
 
 <template>
   <main class="p-10 flex gap-10">
     <div>
+
       <h2 class="text-lg font-bold mb-4">Colors</h2>
+      <button
+        type="button"
+        class="px-3 mb-5 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+        @click="clearColors()"
+      >Clear all</button>
       <div class="flex flex-col flex-wrap mb-10 gap-4">
         <div class="flex items-center" v-for="color in baseColors" :key="color">
           <input
