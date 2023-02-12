@@ -35,6 +35,9 @@ const roundeds = ref([
   //'full'
 ])
 
+const columns = ref(5)
+const rows = ref(5)
+
 const checkedColors = ref(baseColors.value)
 const checkedWeights = ref(baseWeights.value)
 
@@ -75,6 +78,19 @@ const checkedWeights = ref(baseWeights.value)
         </div>
       </div>
 
-    <Canvas :colors="checkedColors" :weights="checkedWeights" :roundeds="roundeds" />
+      <div>
+        <label for="minmax-range" class="text-lg font-bold mb-4">Columns</label>
+        <input id="minmax-range" v-model="columns" type="range" min="1" max="20" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
+        <label for="minmax-range" class="text-lg font-bold mb-4">Rows</label>
+        <input id="minmax-range" v-model="rows" type="range" min="1" max="20" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
+      </div>
+
+    <Canvas
+      :colors="checkedColors"
+      :weights="checkedWeights"
+      :roundeds="roundeds"
+      :columns="columns"
+      :rows="rows"
+    ></Canvas>
   </main>
 </template>

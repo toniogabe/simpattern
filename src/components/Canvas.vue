@@ -2,7 +2,7 @@
 import Tile from './Tile.vue';
 
 const props = defineProps([
-  'weights', 'colors', 'roundeds'
+  'weights', 'colors', 'roundeds', 'columns', 'rows'
 ])
 
 const randomFrom = (list) => list[Math.floor(Math.random() * list.length)]
@@ -12,12 +12,12 @@ const getRounded = () => `rounded-${randomFrom(props.roundeds)}`
 </script>
 
 <template>
-  <section class="flex flex-wrap h-fit">
+  <section class="grid h-fit" :style="{ 'grid-template-columns': `repeat(${props.columns}, minmax(0, 1fr))` }">
     <Tile
-      v-for="item in 1000" :key="item"
+      v-for="item in (props.rows * props.columns)" :key="item"
       :bg-color="getColor()"
       :color="getColor()"
-      :rounded="`${getRounded()}`"
+      :rounded="getRounded()"
     ></Tile>
   </section>
 </template>
