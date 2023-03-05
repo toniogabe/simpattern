@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import Canvas from './components/Canvas.vue';
+import TopBar from './components/TopBar.vue';
 
 const baseColors = ref([
   'slate',
@@ -48,7 +49,12 @@ function clearColors () {
 </script>
 
 <template>
+  <TopBar
+    v-model:columns="columns"
+    v-model:rows="rows"
+  ></TopBar>
   <main class="p-10 flex gap-10">
+
     <div>
 
       <h2 class="text-lg font-bold mb-4">Colors</h2>
@@ -88,12 +94,7 @@ function clearColors () {
         </div>
       </div>
 
-      <div>
-        <label for="minmax-range" class="text-lg font-bold mb-4">Columns</label>
-        <input id="minmax-range" v-model="columns" type="range" min="1" max="20" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
-        <label for="minmax-range" class="text-lg font-bold mb-4">Rows</label>
-        <input id="minmax-range" v-model="rows" type="range" min="1" max="20" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
-      </div>
+
 
     <Canvas
       :colors="checkedColors"
