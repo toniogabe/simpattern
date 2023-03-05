@@ -15,11 +15,12 @@
       <label for="minmax-range" class="font-thin tracking-wide text-slate-100 shrink-0">Columns ({{ columns }})</label>
       <input
       id="minmax-range"
+      :value="columns"
       @input="$emit('update:columns', $event.target.value)"
       type="range"
       min="1"
       max="20"
-      class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+      class="w-full h-2 bg-slate-400 rounded-lg appearance-none cursor-pointer"
       >
     </div>
 
@@ -27,11 +28,12 @@
       <label for="minmax-range" class="font-thin tracking-wide text-slate-100 shrink-0">Rows ({{ rows }})</label>
       <input
       id="minmax-range"
+      :value="rows"
       @input="$emit('update:rows', $event.target.value)"
       type="range"
       min="1"
       max="20"
-      class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+      class="w-full h-2 bg-slate-400 rounded-lg appearance-none cursor-pointer"
       >
     </div>
   </div>
